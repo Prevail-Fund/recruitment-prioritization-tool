@@ -7,25 +7,26 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'DM Sans', sans-serif; background: #F7F5F0; padding: 14px 24px; }
-  .page { max-width: 600px; margin: 0 auto; }
-  h2 { font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
+  body { font-family: 'DM Sans', sans-serif; background: #F7F5F0; padding: 14px 16px; }
+  .page { max-width: 690px; margin: 0 auto; }
+  h2 { font-size: 19px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
   .subtitle { font-size: 11.5px; color: #888; font-weight: 300; margin-bottom: 8px; }
-  .stack { display: flex; flex-direction: column; gap: 5px; }
+  .stack { display: flex; flex-direction: column; gap: 4px; }
   .row { display: flex; border-radius: 8px; overflow: hidden; border: 1px solid #E8E4DC; background: white; }
-  .row-left { width: 170px; flex-shrink: 0; padding: 8px 14px; display: flex; flex-direction: column; gap: 2px; }
+  .row-left { width: 196px; flex-shrink: 0; padding: 6px 14px; display: flex; flex-direction: column; gap: 2px; }
   .c1 .row-left { background: #FDECEA; }
   .c2 .row-left { background: #E8F5E9; }
   .c3 .row-left { background: #E3F2FD; }
   .c4 .row-left { background: #EDE7F6; }
   .c-title { font-size: 13px; font-weight: 600; color: #1a1a1a; line-height: 1.3; }
   .c-desc { font-size: 11px; color: #1a1a1a; font-weight: 300; line-height: 1.4; opacity: 0.7; }
-  .row-mid { flex: 1; display: flex; flex-direction: column; border-left: 1px solid #E8E4DC; padding: 8px 14px; gap: 3px; }
+  .row-mid { flex: 1; display: flex; flex-direction: column; border-left: 1px solid #E8E4DC; padding: 6px 14px; gap: 3px; }
   .mid-header { font-size: 13px; font-weight: 600; color: #1a1a1a; line-height: 1.3; }
   .mid-desc { font-size: 11px; color: #555; font-weight: 300; line-height: 1.4; }
   .mid-desc strong { font-weight: 600; color: #1a1a1a; }
-  .row-right { width: 100px; flex-shrink: 0; border-left: 1px solid #E8E4DC; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 10px; gap: 5px; background: #FAFAF8; }
+  .row-right { width: 100px; flex-shrink: 0; border-left: 1px solid #E8E4DC; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6px 10px; gap: 4px; background: #FAFAF8; }
   .score-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #bbb; }
+  .select-label { font-size: 13px; font-weight: 600; color: #1a1a1a; line-height: 1.3; margin-bottom: 4px; }
   .score-buttons { display: flex; flex-direction: column; gap: 4px; width: 100%; }
   .score-btn { width: 100%; padding: 4px 0; border-radius: 5px; border: 1.5px solid #E8E4DC; background: white; cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #aaa; transition: all 0.15s; }
   .score-btn:hover { border-color: #ccc; color: #555; }
@@ -34,13 +35,13 @@
   .score-btn.active-low  { background: #FDECEA; border-color: #EF9A9A; color: #C84B31; }
   .divider-note { display: flex; align-items: center; gap: 12px; padding: 1px 0; }
   .divider-note-line { height: 1px; background: #E0DCD4; flex: 1; }
-  .divider-note-text { font-size: 11px; color: #1a1a1a; font-weight: 500; font-style: italic; white-space: nowrap; }
+  .divider-note-text { font-size: 11px; color: #1a1a1a; font-weight: 600; white-space: nowrap; }
   .recommendation { margin-top: 8px; border-radius: 8px; border: 1px solid #E8E4DC; background: white; overflow: hidden; }
   .rec-header { background: #1a1a1a; color: white; padding: 9px 16px; display: flex; align-items: center; gap: 12px; }
   .rec-header-title { font-size: 13px; font-weight: 600; }
   .rec-header-sub { font-size: 11px; color: #888; font-weight: 300; }
   .rec-body { padding: 10px 16px; display: flex; gap: 16px; align-items: flex-start; }
-  .rec-level { flex-shrink: 0; width: 140px; text-align: center; }
+  .rec-level { flex-shrink: 0; width: 165px; text-align: center; }
   .rec-level-num { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #bbb; margin-bottom: 4px; }
   .rec-level-badge { font-size: 26px; font-weight: 700; color: #1a1a1a; line-height: 1; }
   .rec-level-desc { font-size: 11px; color: #666; font-weight: 300; line-height: 1.5; margin-top: 4px; text-align: left; }
@@ -57,7 +58,7 @@
   .chip-low  { background: #FDECEA; color: #C84B31; }
   .chip-none { background: #F0EBE4; color: #aaa; }
   .levels-section { margin-bottom: 10px; }
-  .levels-title { font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+  .levels-title { font-size: 19px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
   .level-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
   .level-box { border-radius: 8px; padding: 7px 10px; display: flex; flex-direction: column; gap: 2px; }
   .lb-1 { background: #EBF4FF; }
@@ -77,18 +78,20 @@
 
   <div class="levels-section">
     <div class="levels-title">Potential levels of engagement</div>
-    <div class="levels-ownership-note">For levels 1–3, Prevail plays a supporting role — the partner owns the outcome and can/should use other recruitment resources. At level 4, Prevail takes on more responsibility for the outcome.</div>
+    <div style="height:1px; background:#E8E4DC; margin: 8px 0;"></div>
     <div class="level-track">
       <div class="level-box lb-1"><div class="lv-tag">Level 1</div><ul class="lv-list"><li>Share existing candidates + make intros</li></ul></div>
       <div class="level-box lb-2"><div class="lv-tag">Level 2</div><ul class="lv-list"><li>Share existing candidates</li><li>Source (networking & online)</li><li>Potentially initial screening</li></ul></div>
       <div class="level-box lb-3"><div class="lv-tag">Level 3</div><ul class="lv-list"><li>Share existing candidates</li><li>Source, screen, full interviews</li><li>Full process & evaluation support</li></ul></div>
       <div class="level-box lb-4"><div class="lv-tag">Level 4</div><ul class="lv-list"><li>Full end-to-end responsibility</li><li>Potentially embed recruiter</li></ul></div>
     </div>
-
+    <div style="height:6px;"></div>
+    <div class="levels-ownership-note">For levels 1–3, we are explicit that Prevail plays a supporting role only — the partner owns the outcome and shouldn't rely solely on Prevail. At level 4, Prevail takes on more responsibility for the outcome.</div>
   </div>
 
   <h2>Prioritization criteria</h2>
-  <p class="subtitle">Score each criteria for a recommended level of engagement — these are guidelines only.</p>
+  <p style="font-size:11.5px; color:#888; font-weight:300; line-height:1.5; margin: 4px 0 0 0;">Consider these criteria to help inform how/whether we should provide recruitment support. Note that this is directional only to guide good judgment - there will always be exceptions.</p>
+  <div style="height:1px; background:#E8E4DC; margin: 8px 0;"></div>
   <div class="stack">
 
     <div class="row c1">
@@ -98,10 +101,10 @@
       </div>
       <div class="row-mid">
         <div class="mid-header">When & how we'd engage</div>
-        <div class="mid-desc">If <strong>high</strong>, lean in, depending on the other three factors.<br><br>If <strong>low</strong>, limit engagement (level 1 or nothing) regardless of the rest.</div>
+        <div class="mid-desc">If <strong>high</strong>, lean in depending on the other three factors.<br><br>If <strong>low</strong>, stick to level 1 unless the strategic benefit is high, in which case proceed if it helps us to learn. If proceeding, <strong>reduce risk</strong> by setting clear expectations — tell partners what we can and can't do, make sure they're not relying on us, and ensure they have other options.</div>
       </div>
       <div class="row-right">
-        <div class="score-label">Your score</div>
+        <div class="select-label">Select</div>
         <div class="score-buttons">
           <button class="score-btn" onclick="setScore('c1','high',this)">High</button>
           <button class="score-btn" onclick="setScore('c1','med',this)">Med</button>
@@ -110,11 +113,7 @@
       </div>
     </div>
 
-    <div class="divider-note">
-      <div class="divider-note-line"></div>
-      <div class="divider-note-text">Note: high likelihood of success is a pre-requisite to anything beyond level 1, regardless of the criteria below</div>
-      <div class="divider-note-line"></div>
-    </div>
+
 
     <div class="row c2">
       <div class="row-left">
@@ -126,7 +125,7 @@
         <div class="mid-desc">If <strong>high</strong>, lean in regardless of the priority of the role or the partner.<br><br>If <strong>low</strong>, engage only if partner/role priority is high.</div>
       </div>
       <div class="row-right">
-        <div class="score-label">Your score</div>
+        <div class="select-label">Select</div>
         <div class="score-buttons">
           <button class="score-btn" onclick="setScore('c2','high',this)">High</button>
           <button class="score-btn" onclick="setScore('c2','med',this)">Med</button>
@@ -145,7 +144,7 @@
         <div class="mid-desc">If <strong>high</strong>, lean in regardless of any additional strategic benefit, and aim for high priority roles.<br><br>If <strong>low</strong>, engage only if there's other strategic benefit.</div>
       </div>
       <div class="row-right">
-        <div class="score-label">Your score</div>
+        <div class="select-label">Select</div>
         <div class="score-buttons">
           <button class="score-btn" onclick="setScore('c3','high',this)">High</button>
           <button class="score-btn" onclick="setScore('c3','med',this)">Med</button>
@@ -164,7 +163,7 @@
         <div class="mid-desc">Aim for <strong>high</strong> priority roles in general. Avoid <strong>low</strong> priority unless there's strategic benefit.</div>
       </div>
       <div class="row-right">
-        <div class="score-label">Your score</div>
+        <div class="select-label">Select</div>
         <div class="score-buttons">
           <button class="score-btn" onclick="setScore('c4','high',this)">High</button>
           <button class="score-btn" onclick="setScore('c4','med',this)">Med</button>
@@ -228,19 +227,34 @@
   function updateRecommendation() {
     const { c1, c2, c3, c4 } = scores;
 
-    // C1 is the gateway — Low means Level 1, full stop
+    // C1 is the gateway — Low normally means Level 1 only
+    // Exception: if C2 (strategic benefit) is High, unlock 1-2 as a learning engagement
     if (c1 === 'low') {
-      const rangeDesc = levelDescs[1].replace(/\n/g, '<br>');
-      document.getElementById('recBody').innerHTML = `
-        <div class="rec-body">
-          <div class="rec-level">
-            <div class="rec-level-num">Suggested level</div>
-            <div class="rec-level-badge">1</div>
-            <div class="rec-level-desc">${rangeDesc}</div>
-          </div>
-          <div class="rec-divider"></div>
-          <div class="rec-rationale"><strong>Level 1 only.</strong> Ability to succeed is low — share existing candidates only, regardless of other criteria. Be transparent with the partner about capacity constraints.</div>
-        </div>`;
+      if (c2 === 'high') {
+        const rangeDesc = levelDescs[2].replace(/\n/g, '<br>');
+        document.getElementById('recBody').innerHTML = `
+          <div class="rec-body">
+            <div class="rec-level">
+              <div class="rec-level-num">Suggested level</div>
+              <div class="rec-level-badge">1–2</div>
+              <div class="rec-level-desc">${rangeDesc}</div>
+            </div>
+            <div class="rec-divider"></div>
+            <div class="rec-rationale"><strong>Level 1–2 as a learning engagement.</strong> Ability to succeed is low, but high strategic benefit justifies light involvement — this is a chance to build capability for the future. Be explicit with the partner: tell them what we can and can't do, make sure they're not relying on us, and ensure they have other options running in parallel.</div>
+          </div>`;
+      } else {
+        const rangeDesc = levelDescs[1].replace(/\n/g, '<br>');
+        document.getElementById('recBody').innerHTML = `
+          <div class="rec-body">
+            <div class="rec-level">
+              <div class="rec-level-num">Suggested level</div>
+              <div class="rec-level-badge">1</div>
+              <div class="rec-level-desc">${rangeDesc}</div>
+            </div>
+            <div class="rec-divider"></div>
+            <div class="rec-rationale"><strong>Level 1 only.</strong> Ability to succeed is low and strategic benefit does not justify stretching further. Share existing candidates only and be transparent with the partner about capacity constraints.</div>
+          </div>`;
+      }
       return;
     }
 
@@ -272,23 +286,44 @@
       if (level === '3–3') level = '3';
     }
 
+    // Build a natural opening sentence weaving together why we are/aren't engaging
+    const engagementNote = (() => {
+      const partnerHigh = c3 === 'high', partnerLow = c3 === 'low';
+      const roleHigh = c4 === 'high', roleLow = c4 === 'low';
+      const stratHigh = c2 === 'high', stratLow = c2 === 'low';
+
+      // Determine "despite" and "because" clauses
+      const positives = [];
+      const negatives = [];
+      if (stratHigh) positives.push('the strategic benefit to Prevail is high');
+      if (c2 === 'med') positives.push('there is some strategic benefit to Prevail');
+      if (partnerHigh) positives.push('it\'s a high priority partner');
+      if (roleHigh) positives.push('it\'s a high priority role');
+      if (partnerLow) negatives.push('low priority partner');
+      if (roleLow) negatives.push('low priority role');
+      if (stratLow) negatives.push('limited strategic benefit');
+
+      if (positives.length === 0 && negatives.length === 0) return 'Medium signals across the board — use judgement on whether to proceed.';
+
+      const posStr = positives.join(', and ');
+      const negStr = negatives.join(' and ');
+
+      if (positives.length > 0 && negatives.length > 0) {
+        return `Worth engaging despite ${negStr} because ${posStr}.`;
+      } else if (positives.length > 0) {
+        return `Worth engaging — ${posStr}.`;
+      } else {
+        return `Low priority across the board (${negStr}) — keep engagement light.`;
+      }
+    })();
+
     const c1Note = c1 === 'med'
-      ? 'Ability to succeed is uncertain — capping at level 3. Be clear with the partner we are not taking full ownership of the search.'
-      : 'Ability to succeed is strong — no constraint on engagement depth.';
+      ? ' Ability to succeed is medium, so cap at level 3.'
+      : ' Ability to succeed is strong.';
 
-    const c2Note = c2 === 'high'
-      ? 'Strong strategic benefit justifies engaging even if other signals are weaker.'
-      : c2 === 'med'
-      ? 'Some strategic benefit — worth proceeding if other signals support it.'
-      : 'Limited strategic benefit — partner and role priority need to justify engagement.';
-
-    const c34Note = (c3 === 'high' && c4 === 'high')
-      ? 'High partner and role priority strongly support deeper engagement.'
-      : (c3 === 'high' || c4 === 'high')
-      ? 'One strong signal from partner or role priority — supports meaningful engagement.'
-      : (c3 === 'med' || c4 === 'med')
-      ? 'Mixed partner and role priority — engage but set clear expectations.'
-      : 'Low partner and role priority — keep engagement light unless strategic benefit justifies otherwise.';
+    const riskNote = c1 === 'med'
+      ? ' <strong>Reduce risk:</strong> be upfront with the partner that we\'re supporting only — underpromise and overdeliver — and make sure they have other options running in parallel.'
+      : '';
 
     const displayHi = parseInt(level.split('–').pop());
     const rangeDesc = levelDescs[displayHi].replace(/\n/g, '<br>');
@@ -301,7 +336,7 @@
           <div class="rec-level-desc">${rangeDesc}</div>
         </div>
         <div class="rec-divider"></div>
-        <div class="rec-rationale"><strong>Level ${level} suggested.</strong> ${c1Note} ${c2Note} ${c34Note}</div>
+        <div class="rec-rationale"><strong>Suggest level ${level}.</strong> ${engagementNote}${c1Note}${riskNote}</div>
       </div>`;
   }
 </script>
